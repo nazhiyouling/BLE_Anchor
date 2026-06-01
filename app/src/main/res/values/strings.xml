@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">BLE锚点</string>
+    <string name="start_btn">启动广播</string>
+    <string name="stop_btn">停止广播</string>
+    <string name="status_running">广播运行中</string>
+    <string name="status_stopped">广播已停止</string>
+</resources>
