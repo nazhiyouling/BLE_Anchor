@@ -21,10 +21,14 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
 
-    - name: Build with Gradle
-      uses: gradle/gradle-build-action@v3
-      with:
-        arguments: assembleRelease
+    - name: Download and install Gradle
+      run: |
+        wget -q https://services.gradle.org/distributions/gradle-8.4-bin.zip
+        sudo unzip -q gradle-8.4-bin.zip -d /opt
+        echo "/opt/gradle-8.4/bin" >> $GITHUB_PATH
+
+    - name: Build APK
+      run: gradle assembleRelease
 
     - name: Upload APK to Artifact
       uses: actions/upload-artifact@v4
